@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/Screens/coming_soon.dart';
+import 'package:netflix/Screens/download_page.dart';
 import 'package:netflix/Screens/home_page.dart';
+import 'package:netflix/Screens/search_page.dart';
 import 'package:netflix/json/root_app_json.dart';
 
 class RootApp extends StatefulWidget {
@@ -25,24 +28,9 @@ class _RootAppState extends State<RootApp> {
       index: activeTab,
       children: [
         HomePage(),
-        Center(
-          child: Text(
-            'Coming Soon',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        Center(
-          child: Text(
-            'Search',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        Center(
-          child: Text(
-            'Downloads',
-            style: TextStyle(color: Colors.white),
-          ),
-        )
+        ComingSoon(),
+        SearchPage(),
+        DownloadPage(),
       ],
     );
   }
