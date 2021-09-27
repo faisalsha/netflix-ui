@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/Screens/video_detail_page.dart';
 import 'package:netflix/json/home_json.dart';
+import 'package:netflix/json/search_json.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -167,15 +169,26 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.only(left: 10.0),
                           child: Row(
                             children: List.generate(mylist.length, (index) {
-                              return Container(
-                                margin: EdgeInsets.only(right: 8),
-                                width: 110,
-                                height: 160,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(mylist[index]['img']),
-                                      fit: BoxFit.cover),
-                                  borderRadius: BorderRadius.circular(6),
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => VideoDetailPage(
+                                                videoUrl: searchJson[index]
+                                                    ['video'],
+                                              )));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 8),
+                                  width: 110,
+                                  height: 160,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(mylist[index]['img']),
+                                        fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
                                 ),
                               );
                             }),

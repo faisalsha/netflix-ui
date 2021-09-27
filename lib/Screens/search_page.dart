@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix/Screens/video_detail_page.dart';
 import 'package:netflix/json/search_json.dart';
 
 class SearchPage extends StatefulWidget {
@@ -66,12 +67,12 @@ class _SearchPageState extends State<SearchPage> {
                 children: List.generate(searchJson.length, (index) {
               return GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (_) => VideoDetailPage(
-                  //               videoUrl: searchJson[index]['video'],
-                  //             )));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => VideoDetailPage(
+                                videoUrl: searchJson[index]['video'],
+                              )));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 20),
